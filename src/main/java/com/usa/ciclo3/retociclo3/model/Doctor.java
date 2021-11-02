@@ -7,28 +7,28 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name="cabin")
-public class Cabin implements Serializable {
+@Table(name="doctor")
+public class Doctor implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String  name;
-    private String  brand;
-    private Integer rooms;
+    private String  department;
+    private Integer year;
     private String  description;
 
     @ManyToOne
-    @JoinColumn(name="idCategory")
-    @JsonIgnoreProperties("cabins")
-    private Category category;
+    @JoinColumn(name="idSpecialty")
+    @JsonIgnoreProperties("doctors")
+    private Specialty specialty;
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "cabin")
-    @JsonIgnoreProperties({"cabin", "client"})
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "doctor")
+    @JsonIgnoreProperties({"doctor", "client"})
     private List<Message> messages;
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "cabin")
-    @JsonIgnoreProperties({"cabin", "client"})
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "doctor")
+    @JsonIgnoreProperties({"Doctor", "client"})
     private List<Reservation> reservations;
 
     public Integer getId() {
@@ -47,20 +47,20 @@ public class Cabin implements Serializable {
         this.name = name;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getDepartment() {
+        return department;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
-    public Integer getRooms() {
-        return rooms;
+    public Integer getYear() {
+        return year;
     }
 
-    public void setRooms(Integer rooms) {
-        this.rooms = rooms;
+    public void setYear(Integer year) {
+        this.year = year;
     }
 
     public String getDescription() {
@@ -71,12 +71,12 @@ public class Cabin implements Serializable {
         this.description = description;
     }
 
-    public Category getCategory() {
-        return category;
+    public Specialty getSpecialty() {
+        return specialty;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setSpecialty(Specialty specialty) {
+        this.specialty = specialty;
     }
 
     public List<Message> getMessages() {

@@ -1,6 +1,6 @@
 package com.usa.ciclo3.retociclo3.controller;
 
-import com.usa.ciclo3.retociclo3.model.Category;
+import com.usa.ciclo3.retociclo3.model.Specialty;
 import com.usa.ciclo3.retociclo3.model.Message;
 import com.usa.ciclo3.retociclo3.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;

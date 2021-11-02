@@ -11,17 +11,17 @@ import java.util.List;
 /** Para generar la Relación **/
 
 @Entity
-@Table(name= "category")
-public class Category implements Serializable {
+@Table(name= "specialty")
+public class Specialty implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String  name;
     private String  description;
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "category")
-    @JsonIgnoreProperties("category")
-    private List<Cabin> cabins;
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "specialty")
+    @JsonIgnoreProperties("specialty")
+    private List<Doctor> doctors;
 
     public Integer getId() {
         return id;
@@ -47,11 +47,11 @@ public class Category implements Serializable {
         this.description = description;
     }
 
-    public List<Cabin> getCabins() {
-        return cabins;
+    public List<Doctor> getDoctors() {
+        return doctors;
     }
 
-    public void setCabins(List<Cabin> cabins) {
-        this.cabins = cabins;
+    public void setDoctors(List<Doctor> doctors) {
+        this.doctors = doctors;
     }
 }

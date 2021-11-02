@@ -22,7 +22,7 @@ public class ReservationController {
     public List<Reservation> getAll(){ return reservationService.getAll();}
 
     @GetMapping("/{id}")
-    public Optional<Reservation> getCategory(@PathVariable("id") int id){return reservationService.getReservation(id);}
+    public Optional<Reservation> getSpecialty(@PathVariable("id") int id){return reservationService.getReservation(id);}
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)

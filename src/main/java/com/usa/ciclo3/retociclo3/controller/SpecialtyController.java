@@ -1,7 +1,7 @@
 package com.usa.ciclo3.retociclo3.controller;
 
-import com.usa.ciclo3.retociclo3.model.Category;
-import com.usa.ciclo3.retociclo3.service.CategoryService;
+import com.usa.ciclo3.retociclo3.model.Specialty;
+import com.usa.ciclo3.retociclo3.service.SpecialtyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -10,37 +10,37 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/Category")
+@RequestMapping("/api/Specialty")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
-public class CategoryController {
+public class SpecialtyController {
     @Autowired
-    private CategoryService categoryService;
+    private SpecialtyService specialtyService;
 
     @GetMapping("/all")
-    public List<Category> getAll(){
-        return categoryService.getAll();
+    public List<Specialty> getAll(){
+        return specialtyService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Category> getCategory(@PathVariable("id") int id){
-        return categoryService.getCategory(id);
+    public Optional<Specialty> getSpecialty(@PathVariable("id") int id){
+        return specialtyService.getSpecialty(id);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    private Category save(@RequestBody Category category){
-        return categoryService.save(category);
+    private Specialty save(@RequestBody Specialty specialty){
+        return specialtyService.save(specialty);
     }
 
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category update(@RequestBody Category category){
-        return categoryService.update(category);
+    public Specialty update(@RequestBody Specialty specialty){
+        return specialtyService.update(specialty);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public  Boolean delete(@PathVariable("id") int id){
-        return categoryService.deleteCategory(id);
+        return specialtyService.deleteSpecialty(id);
     }
 }

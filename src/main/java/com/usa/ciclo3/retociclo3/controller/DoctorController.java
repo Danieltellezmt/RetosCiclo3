@@ -1,7 +1,7 @@
 package com.usa.ciclo3.retociclo3.controller;
 
-import com.usa.ciclo3.retociclo3.model.Cabin;
-import com.usa.ciclo3.retociclo3.service.CabinService;
+import com.usa.ciclo3.retociclo3.model.Doctor;
+import com.usa.ciclo3.retociclo3.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.expression.spel.ast.OpAnd;
 import org.springframework.http.HttpStatus;
@@ -11,27 +11,27 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/Cabin")
+@RequestMapping("/api/Doctor")
 @CrossOrigin (origins= "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
-public class CabinController {
+public class DoctorController {
     @Autowired
-    private CabinService cabinService;
+    private DoctorService doctorService;
 
     @GetMapping("/all")
-    public List<Cabin> getAll(){return cabinService.getAll();}
+    public List<Doctor> getAll(){return doctorService.getAll();}
 
     @GetMapping("/{id}")
-    public Optional<Cabin> getCabin(@PathVariable("id") int id){return cabinService.getCabin(id);}
+    public Optional<Doctor> getDoctor(@PathVariable("id") int id){return doctorService.getDoctor(id);}
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Cabin save(@RequestBody Cabin cabin){ return cabinService.save(cabin);}
+    public Doctor save(@RequestBody Doctor doctor){ return doctorService.save(doctor);}
 
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Cabin update(@RequestBody Cabin cabin){return cabinService.update(cabin);}
+    public Doctor update(@RequestBody Doctor doctor){return doctorService.update(doctor);}
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Boolean delete(@PathVariable("id") int id){return cabinService.deleteCabin(id);}
+    public Boolean delete(@PathVariable("id") int id){return doctorService.deleteDoctor(id);}
 }
